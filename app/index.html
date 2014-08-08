@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="tbGameApp">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+  <title>TextBasedGame Designer</title>
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+<div class="container">
+	<nav class="navbar navbar-default" role="navigation">
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="#">New Room</a></li>
+		</ul>
+	</nav>
+	<ng-view></ng-view>
+</div>
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<script src="//cdn.jsdelivr.net/angularjs/1.1.2/angular-resource.js"></script>
+<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.3.0.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers/RoomList.js"></script>
+
+</body>
+</html>
