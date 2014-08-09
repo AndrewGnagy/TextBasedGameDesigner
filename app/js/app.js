@@ -14,7 +14,7 @@ $routeProvider.
         templateUrl: 'views/rooms.html'
     }).
     when('/room/:roomname', {
-        controller: 'RoomListCtrl',
+        controller: 'RoomDetailsCtrl',
         templateUrl: 'views/roomDetails.html'
     }).
     otherwise({
