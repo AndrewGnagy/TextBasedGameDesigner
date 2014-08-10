@@ -1,9 +1,9 @@
 TCList = function(func) {
     console.log('Looking for RoomList);
 
-    var query = ["Select *",
+    var query = ["Select name",
 		"FROM",
-		"Table"].join(" ");
+		"rooms"].join(" ");
 
     returnResults(query, function(results) {
 		func(results);

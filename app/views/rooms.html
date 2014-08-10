@@ -1,5 +1,10 @@
-  <div class="row-fluid">
+<div class="row-fluid">
+	<ol class="breadcrumb">
+	  <li class="active">Rooms</li>
+	</ol>
+</div>
+<div class="row-fluid">
     <div class="list-group" ng-repeat="room in rooms | filter:roomSearch">
 		<a href="#/room/{{room.name}}" class="list-group-item">{{room.name}}</a>
     </div>
-  </div>
+</div>

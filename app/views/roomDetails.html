@@ -1,6 +1,12 @@
-  <div class="row-fluid">
+<div class="row-fluid">
+	<ol class="breadcrumb">
+		<li><a href="#">Rooms</a></li>
+		<li class="active" ng-bind="room.name"></li>
+	</ol>
+</div>
+<div class="row-fluid">
     <h4 ng-bind="room.name"></h4>
 	<div class="panel panel-default">
 		<div class="panel-body" ng-bind="room.description"></div>
 	</div>
-  </div>
+</div>
