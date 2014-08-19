@@ -1,5 +1,4 @@
-var sql = require('msnodesql');
-var http = require('http');
+var sql = require('mysql');
 
 var RoomModel = require('../models/roomsModel');
 

@@ -17,8 +17,6 @@ exports.start = function(PORT, STATIC_DIR) {
 		//open('http://localhost:' + PORT + '/');
 	});
 
-	// Windows and Node.js before 0.8.9 would crash
-	// https://github.com/joyent/node/issues/1553
 	try {
 		process.on('SIGINT', function() {
 			// save the storage back to the json file
