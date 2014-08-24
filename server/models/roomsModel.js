@@ -1,9 +1,7 @@
 RoomList = function(func) {
-    console.log('Looking for RoomList);
+    console.log('Looking for RoomList');
 
-    var query = ["Select name",
-		"FROM",
-		"rooms"].join(" ");
+    var query = ["Select name FROM rooms"];
 
     returnResults(query, function(results) {
 		func(results);
@@ -11,7 +9,7 @@ RoomList = function(func) {
 };
 
 RoomByName = function(func) {
-    console.log('Looking for RoomList);
+    console.log('Looking for RoomList');
 
     var query = ["Select name",
 		"FROM",

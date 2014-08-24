@@ -1,25 +1,16 @@
-var sql = require('mysql');
+var mysql = require('mysql');
 
 var RoomModel = require('../models/roomsModel');
 
-connect = function() {
-  var conn_str = "Driver={SQL Server};Server=tbGameDB;Database=tbGame;Uid=AdminUser;Pwd=testing;";
-  var connection = sql.open(conn_str, function (err, conn) {
-    if (err) {
-      console.log("Error opening the connection!");
-      return;
-    };
-	console.log("Connected to DB!");
-    /*TestCases.TCList(DEFAULTCODEBASE, function(tcData) {
-      tcList = tcData;
-	  console.log("TC List generated!");
-    });*/
-  });
-  conn = connection;
-};
+var connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "tesla"
+});
 
 returnResults = function(query, func) {
-	conn.queryRaw(query, function (err, results) {
+  connection.query(query, function(err, results) {
+//	conn.queryRaw(query, function (err, results) {
         if (err) {
             console.log("Error running query!");
             func([]);
@@ -42,7 +33,7 @@ returnResults = function(query, func) {
     });
 }
 
-connect();
+connection.connect();
 //reconnects to gimpy every 24 hours
 setInterval(function() {connect();}, 86400000);
 
@@ -52,7 +43,7 @@ exports.getRoom = function(req, res) {
     });
 }
 
-exports.getRooms = function(req, res) {
+exports.getRoomList = function(req, res) {
 	RoomModel.RoomList(function(data) {
         res.send(data);
     });
