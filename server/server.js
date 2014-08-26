@@ -9,15 +9,15 @@ start = function(PORT) {
 	app.use(express.bodyParser());
 
 	//Default
-	app.get('/', function(req, res){
-		res.send('You are accessing tbgd api');
-	});
+	app.use(express.static('/home/robo/TextBasedGameDesigner/app'));
 	// Room stuff
 	app.get('/api/rooms', roomModule.getRoomList);
 	app.get('/api/room/:roomname', roomModule.getRoom);
+	app.put('/api/room/:roomname', roomModule.putRoom);
 
 	console.log(PORT);
 	app.listen(PORT);
+	console.log(__dirname + '/../app');
 
 };
 

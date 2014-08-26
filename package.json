@@ -9,7 +9,8 @@
     "mysql": "*"
   },
   "engines": {
-    "node": "0.8.22"
+    "node": "0.8.22",
+    "npm": "1.2.25"
   },
   "scripts": {
     "start": "node server/server.js"
