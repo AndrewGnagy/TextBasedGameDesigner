@@ -1,6 +1,7 @@
 var mysql = require('mysql');
 
 var RoomModel = require('../models/roomsModel');
+var CommandModel = require('../models/commandsModel');
 
 var connection = mysql.createConnection({
   host: "localhost",
@@ -49,4 +50,16 @@ exports.getRoomList = function(req, res) {
 	RoomModel.RoomList(function(data, req) {
         	res.send(data);
     	});
+}
+
+exports.getCommands = function(req, res) {
+	CommandModel.CommandsByRoom(req.params.roomid, function(data) {
+        	res.send(data);
+	});
+}
+
+exports.putCommands = function(req, res) {
+	CommandModel.UpdateCommandsByRoom(req.params.roomid, req.body, function(data) {
+        	res.send(data);
+	});
 }

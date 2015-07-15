@@ -14,6 +14,9 @@ start = function(PORT) {
 	app.get('/api/rooms', roomModule.getRoomList);
 	app.get('/api/room/:roomname', roomModule.getRoom);
 	app.put('/api/room/:roomname', roomModule.putRoom);
+	//Commands
+	app.get('/api/commands/:roomid', roomModule.getCommands);
+	app.put('/api/commands/:roomid', roomModule.putCommands);
 
 	console.log(PORT);
 	app.listen(PORT);
