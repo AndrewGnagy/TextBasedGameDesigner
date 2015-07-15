@@ -1,7 +1,7 @@
 <div class="row-fluid">
 	<ol class="breadcrumb">
 		<li><a href="#">Rooms</a></li>
-		<li class="active" ng-bind="room.name"></li>
+		<li class="active" ng-bind="roomname"></li>
 	</ol>
 </div>
 <div class="row-fluid">
@@ -9,6 +9,9 @@
 	<br/>
 	<div class="panel panel-default">
 		<textarea class="form-control" rows="10" ng-model="room.text"></textarea>
+	</div>
+	<div ng-if="isNew">
+		<span>New text</span>
 	</div>
 
 	<div class="panel panel-default">

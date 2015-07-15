@@ -1,9 +1,14 @@
 app.controller('RoomDetailsCtrl', function ($scope, $routeParams, Rooms, Commands) {
 	console.log($routeParams);
 	if ($routeParams.roomname) {
-		$scope.roomname = $routeParams.roomname;
+		if($routeParams.roomname === 'new'){
+			$scope.isNew = true;
+			$scope.roomname = "New Room"
+		} else {
+			$scope.isNew = false;
+			$scope.roomname = $routeParams.roomname;
+		}
 	}
-
 
 	Rooms.Room.get({roomname: $scope.roomname},
 		function(response){
@@ -27,6 +32,14 @@ app.controller('RoomDetailsCtrl', function ($scope, $routeParams, Rooms, Command
 		{name: "Add to Inventory"},
 		{name: "Remove from Inventory"},
 		{name: "Set variable"}];
+
+
+		if($scope.isNew){
+			Rooms.RoomPost.save({roomname: $scope.roomname}, $scope.room);
+		} else {
+			Rooms.RoomPut.update({roomname: $scope.roomname}, $scope.room);
+		}
+	}
 
 	$scope.myAction = $scope.actions[0].name;
 	
