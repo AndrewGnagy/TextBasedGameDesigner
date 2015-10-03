@@ -9,7 +9,7 @@ start = function(PORT) {
 	app.use(express.bodyParser());
 
 	//Default
-	app.use(express.static('/home/robo/TextBasedGameDesigner/app'));
+	app.use(express.static(__dirname + '/../app'));
 	// Room stuff
 	app.get('/api/rooms', roomModule.getRoomList);
 	app.get('/api/room/:roomname', roomModule.getRoom);

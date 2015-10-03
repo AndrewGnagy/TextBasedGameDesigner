@@ -1,21 +1,15 @@
-var mysql = require('mysql');
+var sqlite3 = require('sqlite3');
+var db = new sqlite3.Database('./db/database.db');
 
 var RoomModel = require('../models/roomsModel');
 var CommandModel = require('../models/commandsModel');
 
-var connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "tesla",
-  database: "tbgamedesigner"
-});
-
 returnResults = function(query, inserts, func) {
   if(inserts) {
-	query = mysql.format(query, inserts);
+	//query = mysql.format(query, inserts);
   }
   console.log(query);
-  connection.query(query, function(err, results) {
+  db.all(query, function(err, results) {
         if (err) {
             console.log("Error running query!");
             func([]);
@@ -26,13 +20,9 @@ returnResults = function(query, inserts, func) {
             return;
         }
 	console.log(results);
-        func(results);
+    func(results);
     });
 }
-
-connection.connect();
-//reconnects to gimpy every 24 hours
-setInterval(function() {connect();}, 86400000);
 
 exports.getRoom = function(req, res) {
 	RoomModel.RoomByName(req.params.roomname, function(data) {

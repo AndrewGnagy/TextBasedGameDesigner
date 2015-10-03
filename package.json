@@ -6,7 +6,7 @@
   "main": "server/server.js",
   "dependencies": {
     "express": "3.3.4",
-    "mysql": "*"
+    "sqlite3": "*"
   },
   "engines": {
     "node": "0.8.22",
